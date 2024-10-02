@@ -524,8 +524,8 @@ def main():
 
             out = trainer.generate_experience(batch_prompt['prompt'],
                                               batch_prompt['prompt_att_mask'],
-                                              step)
-
+                                              step) # prompts(input_ids):(bs,256),  logprobs:(bs,511), ref_logprobs:(bs,511), 
+            # rewards (bs,), value (bs, 511), input_ids (bs,512), attention_mask(bs,512)
             training_start = time.time()
             if batch_unsupervised is not None:
                 batch_unsupervised = to_device(batch_unsupervised, device)
